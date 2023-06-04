@@ -1,0 +1,14 @@
+https://blog.csdn.net/qq_35470686/article/details/116245197
+
+更新了，你看一下train.py，优化器部分，你可以新添加个列表用来存放w，也可以把它放到其他列表里面，我是新建了一个w0[]
+然后在 elif hasattr(v, 'weight') and isinstance(v.weight, nn.Parameter):
+pg1.append(v.weight)后面加上这一部分：
+if hasattr(v, 'w1') and isinstance(v.w1, nn.Parameter):
+w0.append(v.w1)
+if hasattr(v, 'w2') and isinstance(v.w2, nn.Parameter):
+w0.append(v.w2)
+然后在optimizer.add_param_group({'params': pg2})后面加这个：
+optimizer.add_param_group({'params': w0})
+最后这样：
+del pg0, pg1, pg2, w0，就可以啦
+要是不清楚的话可以加我QQ：1813503783，咱们可以多讨论讨论

@@ -1,0 +1,4 @@
+data_cropv1.py  将高分率图片切割成低分辨率图片
+xmltotxtNoNorm.py  将xml文件里面的标注数据原封不动的改写成txt文件
+
+剩余文件，参考predataset文件夹
